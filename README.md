@@ -1,4 +1,4 @@
-# Blog - python back end(flask)
+# Forum- python back end(flask)
 
 ## This is a small full stack project built using **Python**, **Flask(python module)**, **HTML**, **Boostrap**, **SQLALCHEMY** - (database), **JavaScript**
 
