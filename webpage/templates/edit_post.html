@@ -1,0 +1,22 @@
+{% extends "main.html"%}
+{% block title %}
+Edit {{user.username}}'s Post
+{% endblock%}
+{% block content %}
+<h1 align = 'center'>Post Editor</h1>
+<form method="POST">
+    <div>
+    <textarea name = 'text' id="text" class="form-control">{{post.text}}</textarea>
+    <br/>
+    <div align = center>
+        <button type="submit" class="btn btn-sm btn-primary">Edit</button>
+    </div>
+    <br/>
+    </div>
+    <div align = 'center'>
+        <a href="/home"><button type="button" class="btn btn-sm btn-primary">Back to home</button></a>
+    </div>
+
+
+</form>
+{% endblock%}

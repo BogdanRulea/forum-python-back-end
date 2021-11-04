@@ -1,0 +1,14 @@
+{% extends "posts_div.html"%}
+{% block title %}
+{{username}}'s Posts
+{% endblock%}
+{% block header %}
+<h2 align = 'center'>{{username}}'s Posts</h2>
+{% endblock%}
+{% block footer %}
+<div align='center'>
+    <a href="/home">
+        <button type="button" class="btn btn-primary btn-sm">Back to home</button>
+    </a>
+</div>
+{% endblock %}

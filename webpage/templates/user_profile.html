@@ -1,0 +1,14 @@
+{% extends "posts_div.html"%}
+{% block title %}
+{{user.username}}'s Profile
+{% endblock%}
+{% block header %}
+<h2 align = 'center'>{{user.username}}'s Profile</h2>
+{% endblock%}
+{% block footer %}
+<div align='center'>
+    <a href="/home">
+        <button type="button" class="btn btn-primary btn-sm">Back to home</button>
+    </a>
+</div>
+{% endblock %}

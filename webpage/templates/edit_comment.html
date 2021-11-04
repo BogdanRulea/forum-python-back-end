@@ -1,0 +1,36 @@
+{% extends "main.html"%}
+{% block title %}
+Edit your comment
+{% endblock%}
+{% block content %}
+<h1 align='center'>Comment Editor</h1>
+<form method="POST">
+    <div align = "center">{{username}}'s Post</div>
+    <div class="card border-dark">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            {{username}}
+        </div>
+        <div class="card-body">
+            <div class="card-text" aria-readonly="true">{{post.text}}</div>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+            <span class="text-muted">{{post.creation_date}}</span>
+        </div>
+    </div>
+    <br/>
+    <div align = 'center'>Your comment</div>
+    <div>
+        <textarea name='text' id="text" class="form-control">{{comment.text}}</textarea>
+        <br />
+        <div align=center>
+            <button type="submit" class="btn btn-sm btn-primary">Edit</button>
+        </div>
+        <br />
+    </div>
+    <div align='center'>
+        <a href="/home"><button type="button" class="btn btn-sm btn-primary">Back to home</button></a>
+    </div>
+
+
+</form>
+{% endblock%}
