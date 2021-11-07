@@ -38,17 +38,28 @@
 
             <div class="card-body">
                 <div class="card-text">{{user.description}}</div>
-                <div class="text-end"><a href = "#descriptionblock" type="button" class="btn btn-primary btn-sm">Edit description</a></div>
+                {% if user.username == curr.username%}
+                <br/>
+                <div>
+                    <a class="btn btn-outline-primary" data-bs-toggle="collapse" href="#desccol" role="button" aria-expanded="false" aria-controls="desccol">
+                        Edit Info
+                    </a>
+                </div>
+                <br/>
+                <div class="collapse" id ="desccol">
+                    <form class="input-group" method="POST" action="/edit-description/{{user.username}}">
+                        <input type="text" id="description_text" name="description_text" class="form-control" placeholder="New description"/>
+                        <button type="submit" class="btn btn-primary btn-sm">Edit Info</button> 
+                    </form>
+                 
+                </div>
+                {%endif%}
             </div>
         </div>
     </div>
 </div>
 
 {% block footer %}
-<br />
-<div align='center'>
-    <button type="button" class="btn btn-primary btn-sm">Show {{user.username}}'s Posts</button>
-</div>
 <br />
 <div align='center'>
     <a href="/home">

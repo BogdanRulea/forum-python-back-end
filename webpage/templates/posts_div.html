@@ -4,8 +4,15 @@ Home
 {% endblock%}
 {% block content %}
 <h2 align='center'>{% block header %}Posts{% endblock %}</h2>
+<div align='center'>
+    <a href="/create-post">
+        <button type="button" class="btn btn-primary btn-sm">Create Post</button>
+    </a>
+</div>
+<br/>
+
 <div id='posts'>
-    {% for post in posts %}
+    {% for post in posts[::-1] %}
     <div class='card border-dark'>
         <div class='card-header d-flex justify-content-between align-items-center'>
             <a href='/profile/{{post.user.username}}'>{{post.user.username}}</a>
@@ -107,12 +114,7 @@ Home
     <br />
     {% endfor %}
 </div>
-{% block footer%}
-<div align='center'>
-    <a href="/create-post">
-        <button type="button" class="btn btn-primary btn-sm">Create Post</button>
-    </a>
-</div>
-{% endblock %}
+
+
 
 {% endblock%}

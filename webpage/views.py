@@ -1,6 +1,7 @@
 from operator import pos
 from flask import Blueprint, render_template, request, flash, redirect, url_for, jsonify
 from flask_login import current_user,login_required
+from sqlalchemy.sql.expression import desc
 from werkzeug.utils import validate_arguments
 from .models import Comment, Post, User, Like
 from . import db
@@ -169,8 +170,24 @@ def profile(userName):
     if not user:
         flash('User does not exist.', category='error')
     else:
-        return render_template('user_profile.html', user = user)
+        return render_template('user_profile.html', user = user, curr = current_user)
     
     return redirect(url_for('views.home'))
 
+@views.route('/edit-description/<username>', methods =["POST"])
+@login_required
+def edit_description(username):
 
+    user = User.query.filter_by(username = username).first()
+
+    if not user:
+        flash('User does not exist.')
+    elif user.id != current_user.id:
+        flash('You can\'t edit this description!')
+    else:
+        description = request.form.get('description_text')
+        user.description = description
+        db.session.commit()
+        flash(f"{username}'s description updated")
+    
+    return render_template('user_profile.html', user = user, curr = current_user)
