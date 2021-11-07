@@ -8,10 +8,13 @@ from sqlalchemy.sql import func
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key = True)
+    fname = db.Column(db.String(100))
+    lname = db.Column(db.String(100))
     email = db.Column(db.String(100), unique = True)
     username = db.Column(db.String(100), unique = True)
     password = db.Column(db.String(150))
     creation_date = db.Column(db.DateTime(timezone = True), default = func.now())
+    description = db.Column(db.String(500))
     posts = db.relationship('Post', backref = 'user', passive_deletes = True)
     comments = db.relationship('Comment', backref = 'user', passive_deletes = True)
     likes = db.relationship('Like', backref = 'user', passive_deletes = True)
@@ -40,6 +43,8 @@ class Like(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     author = db.Column(db.Integer, db.ForeignKey('user.id', ondelete ="CASCADE"), nullable = False)  
     post_id = db.Column(db.Integer, db.ForeignKey('post.id', ondelete ="CASCADE"), nullable = False) 
+
+    
 
   
 

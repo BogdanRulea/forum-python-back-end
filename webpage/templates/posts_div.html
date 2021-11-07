@@ -50,7 +50,8 @@ Home
                                         <li><a href="/delete-comment/{{comment.id}}" class="dropdown-item">Delete</a>
                                         </li>
                                         {% if user.id == comment.author %}
-                                        <li><a href="/edit-comment/{{post.id}}/{{comment.id}}" class="dropdown-item">Edit</a></li>
+                                        <li><a href="/edit-comment/{{post.id}}/{{comment.id}}"
+                                                class="dropdown-item">Edit</a></li>
                                         {% endif %}
                                     </ul>
                                 </div>
@@ -75,17 +76,17 @@ Home
                     {% endif %}
                 </p>
             </div>
-            <br/>
+            <br />
             <p>
                 <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseid" role="button"
                     aria-expanded="false" aria-controls="collapseid">
                     Comment here!
                 </a>
             </p>
-            <div class="collapse" id = "collapseid">
-                <form class="input-group mb-3" method="POST" action="/create-comment/{{post.id}}">
+            <div class="collapse" id="collapseid">
+                <form class="input-group" method="POST" action="/create-comment/{{post.id}}">
                     <input type="text" id="text" name="text" class="form-control" placeholder="Comment here!" />
-                    <button type="submit" class="btn btn-primary">Comment</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Comment</button>
 
                 </form>
             </div>
@@ -103,7 +104,7 @@ Home
             </div>
         </div>
     </div>
-    <br/>
+    <br />
     {% endfor %}
 </div>
 {% block footer%}

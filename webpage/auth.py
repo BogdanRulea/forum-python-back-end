@@ -16,6 +16,7 @@ def login():
         password = request.form.get("password")
 
         user = User.query.filter_by(email=email).first()
+        
         if user!=None:
             if check_password_hash(user.password, password):
                 flash("Logged in", category='success')
@@ -35,7 +36,8 @@ def sign_up():
         email = request.form.get("email")
         password1 = request.form.get("password1")
         password2 = request.form.get("password2")
-
+        fname = request.form.get("fName")
+        lname = request.form.get("lName")
         email_found = User.query.filter_by(email=email).first()
         username_found = User.query.filter_by(username=username).first()
         print(username_found)
@@ -51,7 +53,7 @@ def sign_up():
             flash('Password is less than 8 chars long.', category='error')
         else:
             new_user = User(email=email, username=username, password=generate_password_hash(
-                password1, method='sha256'))
+                password1,method='sha256'), fname=fname, lname = lname)
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember=True)

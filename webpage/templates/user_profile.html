@@ -2,13 +2,58 @@
 {% block title %}
 {{user.username}}'s Profile
 {% endblock%}
+
+{% block content %}
 {% block header %}
-<h2 align = 'center'>{{user.username}}'s Profile</h2>
+<h2 align='center'>{{user.username}}'s Profile</h2>
 {% endblock%}
+<br/>
+<div class="row g-3 justify-content-between">
+    <div class="col">
+        <div class="row">
+        <div class="col-md-4">
+            <label for="fname" class="form-label">First Name</label>
+            <input class="form-control" type="text" value="{{user.fname}}" id="fname" disabled readonly>
+        </div>
+
+        <div class="col-md-4">
+            <label for="lname" class="form-label">Last Name</label>
+            <input class="form-control" type="text" value="{{user.lname}}" id="lname" disabled readonly>
+        </div>
+    </div>
+        <div>
+            <div class="col-md-8">
+                <label for="userid" class="form-label">Username</label>
+                <input class="form-control" type="text" value="{{user.username}}" id="userid" disabled readonly>
+            </div>
+            <div class="col-md-8">
+                <label for="usercd" class="form-label">Creation date</label>
+                <input class="form-control" type="text" value="{{user.creation_date}}" id="usercd" disabled readonly>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card border-dark">
+            <div class="card-header">Other information</div>
+
+            <div class="card-body">
+                <div class="card-text">{{user.description}}</div>
+                <div class="text-end"><a href = "#descriptionblock" type="button" class="btn btn-primary btn-sm">Edit description</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% block footer %}
+<br />
+<div align='center'>
+    <button type="button" class="btn btn-primary btn-sm">Show {{user.username}}'s Posts</button>
+</div>
+<br />
 <div align='center'>
     <a href="/home">
         <button type="button" class="btn btn-primary btn-sm">Back to home</button>
     </a>
 </div>
+{% endblock %}
 {% endblock %}
