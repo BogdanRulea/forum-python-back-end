@@ -1,3 +1,4 @@
+(webhosting server has some minor bugs and the app is not online yet)
 # Forum- python back end(flask)
 
 ## This is a small full stack project built using **Python**, **Flask(python module)**, **HTML**, **Boostrap**, **SQLALCHEMY** - (database), **JavaScript**
