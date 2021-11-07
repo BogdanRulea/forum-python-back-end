@@ -85,12 +85,13 @@ Home
             </div>
             <br />
             <p>
-                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseid" role="button"
+                <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapse{{post.id}}" role="button"
                     aria-expanded="false" aria-controls="collapseid">
                     Comment here!
                 </a>
             </p>
-            <div class="collapse" id="collapseid">
+            
+            <div class="collapse" id="collapse{{post.id}}">
                 <form class="input-group" method="POST" action="/create-comment/{{post.id}}">
                     <input type="text" id="text" name="text" class="form-control" placeholder="Comment here!" />
                     <button type="submit" class="btn btn-primary btn-sm">Comment</button>
