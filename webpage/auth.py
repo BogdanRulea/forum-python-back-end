@@ -40,7 +40,9 @@ def sign_up():
         lname = request.form.get("lName")
         email_found = User.query.filter_by(email=email).first()
         username_found = User.query.filter_by(username=username).first()
-        print(username_found)
+        
+        if fname is None or lname is None:
+            flash('Last Name and First Name fields are required')
         if email_found!=None:
             flash('Email is already in use.', category='error')
         elif username_found!=None:
