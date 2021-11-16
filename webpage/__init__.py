@@ -24,8 +24,8 @@ def create_app():
 
     from .models import User, Post, Comment, Like
 
-    #create_database(app)
-    #print("Database created!")
+    create_database(app)
+    print("Database created!")
 
     login_manager = LoginManager()
     login_manager.login_view = "auth.login"
@@ -38,4 +38,5 @@ def create_app():
     return app
 
 def create_database(app):
-    db.create_all(app=app)
+    if not path.exists('webpage/'):
+        db.create_all(app=app)
